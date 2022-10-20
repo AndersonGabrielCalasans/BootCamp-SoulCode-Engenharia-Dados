@@ -54,3 +54,46 @@
             - domínio = [www.google.com](http://www.google.com) > DNS traduz > IP = 255.255.255.255
             - É possível acessar um endereço na rede, mesmo sem o DNS, sabendo o IP do endereço que você quer acessar, não precisa de tradução e consequentemente não precisa do DNS.
             - Para saber o IP de um endereço basta fazer o teste no cmd. ex: ping www.google.com, isso vai me retornar o IP da google além do teste de latência.
+
+# Dia 20/10
+
+- Aprofundamento do assunto de Máscara
+- Mascara - Ela mascara a rede, como o próprio nome já diz.
+    - IP privado são divididos em redes locais
+    - IP’s públicos são utilizados na rede comum.
+- Dentro dos IP’s públicos (válido), foi reservado uma faixa de IP’s para seja utilizado como privado (não válido), essas faixas são:
+    - 10.0.0.0 - 10.255.255.255
+    - 172.16.0.0 - 172.31.255.255
+    - 192.168.0.0 - 192.168.255.255
+- O dispositivo que faz essa gerência dos IP’s é o roteador e qualquer IP que não estiver nas  faixas indicadas acima, são IP’s públicos.
+- Toda vez que o computador retornar a faixa especial 169.254, significa que você não está conectado a nenhuma rede, somente a si próprio.
+- A mascara tem o padrão: 255.255.255.0 e dentro da rede, só é possível utilizar o mascaramento de até 253 dispositivos (padrão), o mascaramento funciona como uma subtração e por padrão são guardados dois IP’s, um para o próprio roteador (geralmente o primeiro) e o último (ex: 192.168.0.255) que é utilizado como Broadcast, que serve para descobrir quantos e quais os IP’s privados/dispositivos que estão presentes na rede.
+- Quando eu limito a minha mascara (colocando um número ao final, ex: 255.255.255.100) eu estou limitando minha rede à 255-100-2 dispositivos, ou seja, a 153 dispositivos.
+
+![image.png](Introduc%CC%A7a%CC%83o%20a%20redes%20de%20computadores%20fbef29ec23d94b2481ffb821b2c754e3/image.png)
+
+- Se eu quero limitar a quantidade de dispositivos eu uso o último octeto da mascara, se eu quero aumentar a quantidade de computadores, ou seja, criar sub-redes, nós alteramos os outros octetos. Exemplos:
+    - 255.255.255.0 = 253 ips
+    - 255.255.254.0 = 253 * 2 ips = 506 ips
+    - 255.255.251.153 = (255 - 153 - 2) * (255 - 251 + 1) = 100 * 5 = 500 ips
+- CIDR - é uma abreviação da máscara, onde o /24 corresponde a máscara padrão 255.255.255.0, já o CIDR /32 corresponde à mascara 255.255.255.255, ou seja, totalmente fechada e 0.0.0.0 ao CIDR /0 o menor, que corresponde a máscara da internet.
+
+**************************************************************************************Segunda parte da aula com professor Bismark**************************************************************************************
+
+- Entramos nos tipos de computadores e SO (sistemas operacionais)
+- O que são servidores: são máquinas dedicadas ao fornecimento de serviços e processamento de operações à um cliente e garantir a disponibilidade desses serviços.
+- Arquitetura Cliente x Servidor
+- Localização dos servidores:
+    - Servidores locais (On Premise)
+    - Servidores em nuvem (Cloud)
+- Introdução à Cloud computing e a relação entre Nuvem pública x nuvem privada.
+- Sorteio das apresentações da aula invertida.
+- Tipos de servidores:
+    - ****Servidor de aplicação -**** é onde temos uma aplicação e ele é disponibilizado para outros dispositivos dentro da empresa
+    - ****Servidor de Arquivos -**** exemplo Google drive
+    - ****Servidor de banco de dados -**** mySQL
+    - **Servidor de mídia -** Netflix, Amazom
+    - ****Servidor de email -****
+    - ****Servidor FTP -**** File Transfer Protocoll
+    - ****Servidor Proxy -**** Serve para controle de tráfego do usuário,
+    - ****Servidor Web -****
