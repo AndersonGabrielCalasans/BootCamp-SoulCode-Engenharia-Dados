@@ -5,6 +5,7 @@ Neste repositório irei disponibilizar todas as minhas anotações, atividades e
 ## **Sumário**
 
 1. [Introdução a redes de computadores](https://github.com/AndersonGabrielCalasans/BootCamp-SoulCode-Engenharia-Dados/blob/main/Introdu%C3%A7%C3%A3o_a_redes_de_computadores.md)
+2. [Cloud Computing](https://github.com/AndersonGabrielCalasans/BootCamp-SoulCode-Engenharia-Dados/blob/main/Cloud%20Computing.md)
 
 ## Referências
 
